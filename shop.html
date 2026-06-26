@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA | Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* GLOBAL STYLES */
+        body {
+            background-color: #f4ebdeff;
+            font-family: 'Verdana', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f4ebdeff;
+            padding: 5px 20px;
+        }
+        .logo img { height: 60px; }
+        nav { background-color: #D3D3D3; border: 1px solid #999; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+        nav ul li { border-right: 1px solid #999; }
+        nav ul li a { text-decoration: none; color: black; padding: 15px 25px; display: block; }
+        .active { background-color: #92a097ff; font-weight: bold; }
+
+        /* PAGE TITLE */
+        .shop-title {
+            font-size: 2.5rem;
+            font-style: italic;
+            margin: 40px 0;
+        }
+
+        /* PRODUCT GRID */
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            width: 195px;
+            margin-bottom: 30px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+
+        /* PRODUCT NAME */
+        .product-info {
+            font-family: 'Montserrat', sans-serif;
+            border: 1px solid #999;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 10px;
+            min-height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            background-color: #dad7cdff;
+        }
+
+        /* PRICES */
+        .price {
+            font-family: 'Verdana', sans-serif;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin: 10px 0;
+            color: #7a867e;
+        }
+        .price.sale { color: #d67b7b; } 
+
+        /* BUTTONS */
+        .add-btn {
+            font-family: 'Arial', sans-serif;
+            background-color: #efefef;
+            border: 1px solid #999;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+            color: black;
+            display: inline-block;
+            transition: 0.3s ease;
+            width: 100%;
+        }
+        .add-btn:hover {
+            background-color: #92a097ff;
+        }
+
+        /* PAGINATION */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+        }
+        .page-num {
+            border: 1px solid #999;
+            padding: 10px 20px;
+            background-color: #D3D3D3;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .page-num.current { background-color: #92a097ff; }
+
+        /* FOOTER */
+        footer {
+            background-color: #D3D3D3;
+            border-top: 1px solid #999;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><img src="images/NOVA.gif" alt="NOVA Logo"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 class="shop-title">Shop <strong>NOVA!</strong></h1>
+
+    <div class="product-container">
+        <div class="product-card">
+            <img src="images/NOVA-Hoodie-green.JPEG" alt="Green Hoodie">
+            <div class="product-info">NOVA Green Hoodie</div>
+            <div class="price">£22.00</div>
+            <button class="add-btn" onclick="addToBag('NOVA Green Hoodie', 22.00, null, 'images/NOVA-Hoodie-green.JPEG')">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/NOVA-T-shirt-black.JPEG" alt="T Shirt">
+            <div class="product-info">NOVA T Shirt Tee</div>
+            <div class="price sale">£12.99</div>
+            <button class="add-btn" onclick="addToBag('NOVA T Shirt Tee', 12.99, 18.00, 'images/NOVA-T-shirt-black.JPEG')">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/NOVA-cargo-pants-grey.JPEG" alt="Cargo Pants">
+            <div class="product-info">Cargo Pants</div>
+            <div class="price sale">£9.74</div>
+            <button class="add-btn" onclick="addToBag('Cargo Pants', 9.74, 15.00, 'images/NOVA-cargo-pants-grey.JPEG')">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/NOVA-streetweaer-cap.JPEG" alt="Cap">
+            <div class="product-info">Streetwear Cap</div>
+            <div class="price">£8.99</div>
+            <button class="add-btn" onclick="addToBag('Streetwear Cap', 8.99, null, 'images/NOVA-streetweaer-cap.JPEG')">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/NOVA-oversized-sweatshirt.JPEG" alt="Sweatshirt">
+            <div class="product-info">Oversized Sweatshirt</div>
+            <div class="price sale">£14.11</div>
+            <button class="add-btn" onclick="addToBag('Oversized Sweatshirt', 14.11, 20.00, 'images/NOVA-oversized-sweatshirt.JPEG')">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="pagination">
+        <a href="shop.html" class="page-num current">1</a>
+        <a href="shop2.html" class="page-num">2</a>
+        <a href="shop3.html" class="page-num">3</a>
+        <span style="margin-left: 15px; font-size: 1.5rem;">⟶</span>
+    </div>
+
+    <footer>
+        <div>© 2026 <strong>NOVA</strong> | Home Shop About Contact</div>
+        <div class="social-icons">
+            Follow us : 
+            <img src="images/Transparent-instagram-icon.png" alt="IG" style="height:20px;">
+            <img src="images/Transparent-tiktok-icon.png" alt="TikTok" style="height:20px;">
+        </div>
+        <div>Designed for comfort. Made for everyday style.</div>
+    </footer>
+
+<script>
+    function addToBag(name, price, oldPrice, img) {
+    let cart = JSON.parse(localStorage.getItem('novaCart')) || [];
+    let existingItem = cart.find(item => item.name === name);
+    
+    if (existingItem) {
+        existingItem.qty += 1;
+    } else {
+        cart.push({ 
+            name: name, 
+            price: price, 
+            oldPrice: oldPrice, 
+            img: img, 
+            qty: 1 
+        });
+    }
+    
+    localStorage.setItem('novaCart', JSON.stringify(cart));
+    alert(name + " added to bag!");
+}
+</script>
+
+</body>
+</html>
