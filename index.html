@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA | Home</title>
+    <style>
+        /* GLOBAL STYLES */
+        body {
+            background-color: #f4ebdeff; 
+            font-family: 'Verdana', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f4ebdeff;
+            padding: 5px 20px;
+        }
+
+        .logo img { height: 60px; }
+
+        nav { background-color: #D3D3D3; border: 1px solid #999; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+        nav ul li { border-right: 1px solid #999; }
+        nav ul li a { text-decoration: none; color: black; padding: 15px 25px; display: block; }
+
+        .active {
+            background-color: #92a097ff; 
+            color: black !important;
+            font-weight: bold;
+        }
+
+        /* HERO SECTION */
+        .hero-container { padding: 20px; }
+        .hero-grey-box {
+            background-color: #dad7cdff; 
+            width: 100%;
+            height: 340px;
+            border-radius: 15px;
+            border: 1px solid #dad7cdff;
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden; 
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .shop-btn {
+            background-color: #92a097ff;
+            border: 1px solid #595959;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .shop-btn:hover { background-color: #7a867e; }
+
+        .hero-image { height: 100%; display: flex; align-items: center; }
+        .hero-image img { max-height: 90%; width: auto; object-fit: contain; }
+
+        .welcome-msg { font-size: 1.8rem; }
+        .welcome-msg span { font-weight: bold; font-style: italic; font-size: 2.4rem; }
+
+        /* FEATURED SECTION */
+        .featured-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .product-card { text-align: center; width: 220px; }
+        .product-card img { width: 100%; border: 1px solid #ccc; background-color: white; }
+
+        .price-label {
+            background-color: #D3D3D3;
+            border: 1px solid black;
+            padding: 5px 15px;
+            font-weight: bold;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            transition: 0.2s;
+        }
+
+        .price-label:hover { background-color: #92a097ff; }
+
+        .center-logo-text { font-size: 3rem; font-weight: bold; font-style: italic; }
+
+        /* FOOTER */
+        footer {
+            background-color: #D3D3D3;
+            border-top: 1px solid #999;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><img src="images/NOVA.gif" alt="NOVA Logo"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-container">
+        <div class="hero-grey-box">
+            <div class="hero-left">
+                <h1>NEW ERA.<br>NEW STYLE.</h1>
+                <a href="shop.html"><button class="shop-btn">Shop Now!</button></a>
+            </div>
+            
+            <div class="hero-image">
+                <img src="images/NOVA-hero-banner.JPEG">
+            </div>
+
+            <div class="welcome-msg">
+                WELCOME TO <span>NOVA!</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="featured-container">
+        <div class="product-card">
+            <p><em>Build for street.</em></p>
+            <img src="images/NOVA-featured-hoodie.JPEG" alt="Hoodie">
+            <div class="price-label" onclick="addToBag('Featured Hoodie', 28.45, null, 'NOVA-featured-hoodie.JPEG')">
+                Hoodie £28.45
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="images/NOVA-featured-T-shirt.JPEG" alt="T-shirt">
+            <div class="price-label" onclick="addToBag('Featured T-shirt', 18.00, null, 'NOVA-featured-T-shirt.JPEG')">
+                T-shirt £18
+            </div>
+        </div>
+
+        <div class="center-logo-text">NOVA</div>
+
+        <div class="product-card">
+            <p><em>Designed for you!</em></p>
+            <div style="color: gold; font-size: 1.2rem;">★★★★</div>
+            <img src="images/NOVA-featured-outfitstreetwear.JPEG" alt="Outfit" style="height: 180px; width: auto;">
+        </div>
+    </div>
+
+    <footer>
+        <div>© 2026 <strong>NOVA</strong> | Home Shop About Contact</div>
+        <div class="social-icons">
+            Follow us : 
+            <img src="images/Transparent-instagram-icon.png" alt="IG" style="height: 20px;">
+            <img src="images/Transparent-tiktok-icon.png" alt="TikTok" style="height: 20px;">
+        </div>
+        <div>Designed for comfort. Made for everyday style.</div>
+    </footer>
+
+    <script>
+    function addToBag(name, price, oldPrice, img) {
+        let cart = JSON.parse(localStorage.getItem('novaCart')) || [];
+        let existingItem = cart.find(item => item.name === name);
+        
+        if (existingItem) {
+            existingItem.qty += 1;
+        } else {
+            cart.push({ 
+                name: name, 
+                price: price, 
+                oldPrice: oldPrice, 
+                img: img, 
+                qty: 1 
+            });
+        }
+        
+        localStorage.setItem('novaCart', JSON.stringify(cart));
+        alert(name + " added to bag!");
+    }
+    </script>
+
+</body>
+</html>
